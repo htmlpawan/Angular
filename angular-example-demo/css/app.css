@@ -1,0 +1,107 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -ms-box-sizing:border-box;
+}
+
+ul,ol{
+  list-style-type:none;
+}
+
+.list-inline li{
+  display:inline-block;
+}
+
+/* PRODUCT CARD */
+.product-card{
+  padding:10px;
+  background-color:#f5f5f5;
+}
+
+.product-card:not(:last-child){
+  margin:0 0 10px;
+}
+
+/* TABLE */
+table{
+  max-width:600px;
+  width:100%;
+  table-layout:fixed;
+  border-collapse:collapse;
+}
+
+table tr th{
+  background-color:#333;
+  color:#fff;
+}
+
+table tr th,
+table tr td{
+  border:1px solid #000;
+  padding:10px;
+}
+
+table tr.even{
+  background-color:powderblue;
+}
+
+table tr.odd{
+  background-color:#f5f5f5;
+}
+
+/* LIST PEOPLE */
+.listpeople{
+  padding:10px;
+  background-color:#f3f3f3;
+  margin:0 0 10px;
+  border:1px solid #333;
+}
+
+/* START NG SWITCH TABBED */
+.switch-case-tabbed{
+  background-color:#333;
+  margin:0 0 20px;
+  border:1px solid #e2e2e2;
+}
+
+.switch-case-tabbed ul li{
+  color:#fff;
+  text-decoration:none;
+  padding:10px 20px;
+}
+
+.switch-case-tabbed ul li.active{
+  background-color:#ed3237;
+}
+
+.switch-case-tabbed .tab-content{
+  color:#fff;
+  padding:10px;
+}
+
+/* START CLICK AND SWITCH STEP TABBED */
+.click-switch-step-tabbed ul li.active{
+  color:red;
+  font-weight:bold;
+}
+
+/* START NG FOR DIRECTIVE */
+.colors-block{
+  padding:10px;
+  background-color:#999;
+  border-radius:10px;
+  box-shadow:3px 3px 3px #ccc;
+  -webkit-box-shadow:3px 3px 3px #ccc;
+  -moz-box-shadow:3px 3px 3px #ccc;
+  -ms-box-shadow:3px 3px 3px #ccc;
+}
+
+.colors-block div:not(:last-child){
+  margin:0 0 10px;
+}
+/* END NG FOR DIRECTIVE */
+
+

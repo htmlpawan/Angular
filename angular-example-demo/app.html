@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<hello name="{{name}}"></hello>
+
+<!-- START PRODUCT CARD -->
+<div class="product-card" *ngFor="let product of products">
+  <h3 [class]="'title'">{{product.title}}</h3>
+  <p [class]="'desc'">{{product.desc}}</p>
+</div>
+<!-- END PRODUCT CARD -->
+
+<!-- START LIST BULLET -->
+<ul>
+  <li *ngFor="let person of people;let i=index;" [ngStyle]="{'color':getColor(person.country)}">
+    {{i+1}}
+    {{person.name}}
+    {{person.country}}
+  </li>
+</ul>
+
+<br><br>
+
+<ul>
+  <li *ngFor="let person of people;let i=index;" [ngStyle]="{'background-color':person.country === 'USA' ? 'green' : 'red'}">
+     {{i+1}}
+     {{person.name}}
+     {{person.country}}
+  </li>
+</ul>
+<!-- END LIST BULLET -->
+
+<br><br>
+
+<!-- START TABLE DATA -->
+<table>
+  <tr>
+    <th>Sr. no.</th>
+    <th>Name</th>
+    <th>Job Location</th>
+  </tr>
+  <tr *ngFor="let table of tables;let i=index;let first=first;let last=last;let even=even;let odd=odd;" [ngClass]="{first:first,last:last,even:even,odd:odd}">
+  <td>{{i+1}}</td>
+  <td>{{table.name}}</td>
+  <td>{{table.jobLocation}}</td>
+</tr>
+</table>
+<!-- END TABLE DATA -->
+
+<!-- START STYLE COLOR -->
+<h1 [style.color]="'#ed3237'">{{heading}}</h1>
+<!-- END STYLE COLOR -->
+
+<!-- START FONT SIZE PIXEL -->
+<p [style.fontSize.px]="30">{{paragraph}}</p>
+<!-- END FONT SIZE PIXEL -->
+
+<br><br>
+
+<!-- START BUTTON TOGGLE ENABLE (GREEN) AND DISABLE (RED) -->
+<button (click)="enabledisable()" [style.color]="toggled ? 'green' :'red'" >{{status}}</button>
+<!-- END BUTTON TOGGLE ENABLE (GREEN) AND DISABLE (RED) -->
+
+<br><br>
+
+<!-- START LIST PEOPLE AND BUTTON ADD NEW PERSON -->
+<div [class]="'listpeople'">
+  <div *ngFor="let person of listpeople">
+    {{person}}
+  </div>
+  <button (click)="btnaddnewperson()">Give me a new person</button>
+</div> 
+<!-- END LIST PEOPLE AND BUTTON ADD NEW PERSON -->
+
+<!-- START NG SWITCH CASE TABBED -->
+<div class="switch-case-tabbed">
+  <ul class="list-inline">
+  <li [class.active]="viewMode == 'step1'" (click)="viewMode = 'step1'">
+    tab1
+  </li>
+  <li [class.active]="viewMode == 'step2'" (click)="viewMode = 'step2'">
+    tab2
+  </li>
+  <li [class.active]="viewMode == 'step3'" (click)="viewMode = 'step3'">
+    tab3
+  </li>
+  <li [class.active]="viewMode == 'step4'" (click)="viewMode = 'step4'">
+    tab4
+  </li>
+</ul>
+<div class="tab-container" [ngSwitch]="viewMode">
+  <div class="tab-content" *ngSwitchCase="'step1'">
+    <h3>Tab1</h3>
+  </div>
+  <div class="tab-content" *ngSwitchCase="'step2'">
+    <h3>Tab2</h3>
+  </div>
+  <div class="tab-content" *ngSwitchCase="'step3'">
+    <h3>Tab3</h3>
+  </div>
+  <div class="tab-content" *ngSwitchCase="'step4'">
+    <h3>Tab4</h3>
+  </div>
+</div>
+</div>
+<!-- END NG SWITCH CASE TABBED -->
+
+<!-- START CLICK AND SWITCH STEP TABBED -->
+<div class="click-switch-step-tabbed">
+  <ul class="list-inline">
+    <li (click)="onClick(1)" [ngClass]="{'active' : tab ==='tab1'}">tab1</li>
+    <li (click)="onClick(2)" [ngClass]="{'active' : tab ==='tab2'}">tab2</li>
+    <li (click)="onClick(3)" [ngClass]="{'active' : tab ==='tab3'}">tab3</li>
+  </ul>
+
+  <ul class="list-inline">
+    <li (click)="switchtab ='switch1'" [ngClass]="{'active' : switchtab ==='switch1'}">tab1</li>
+    <li (click)="switchtab ='switch2'" [ngClass]="{'active' : switchtab ==='switch2'}">tab2</li>
+    <li (click)="switchtab ='switch3'" [ngClass]="{'active' : switchtab ==='switch3'}">tab3</li>
+  </ul>
+</div>
+<!-- END CLICK AND SWITCH STEP TABBED -->
+
+<!-- START NG SHOW AND HIDE -->
+<div class="show-hide-block">
+  <button (click)="btntoggle()">{{toggleshowhide}}</button>
+  <div *ngIf="show">
+    <p>Part A</p>
+    <p>{{show}}</p>
+  </div>
+  <div *ngIf="!(show)">
+    <p>Part B</p>
+    <p>{{show}}</p>
+  </div>
+</div>
+<!-- END NG SHOW AND HIDE -->
+
+<br><br>
+
+<!-- START INTERPOLTAION -->
+<div class="interpolation-block">
+  <h2>Welcome {{customName}}</h2>
+  <h2>{{2+2}}</h2>
+  <h2>{{customName.length}}</h2>
+  <h2>{{customName.toUpperCase()}}</h2>
+  <h2>{{greetuser()}}</h2>
+  <h2>{{siteUrl}}</h2>
+</div>
+<!-- END INTERPOLTAION -->
+
+<br><br>
+
+<!-- START PROPERTY -->
+<div class="property-block">
+  <input type="text" value="David" [id]="myId">
+  <input [disabled]="isDisabled" type="text" value="David" id="{{myId}}">
+</div>
+<!-- END PROPERTY -->
+
+<br><br>
+
+<!-- START CLASS BINDING -->
+<div class="class-biding-block">
+  <h2 class="text-success">Text success</h2>
+  <h2 [class]="successClass">Text success</h2>
+  <h2 [class.text-danger]='hasError'>Text danger</h2>
+  <h2 [ngClass]='messageClasses'>Text some message</h2>
+</div>
+<!-- END CLASS BINDING -->
+
+<br><br>
+
+<!-- START STYLE BINDING -->
+<div class="style-binding-block">
+  <h2 [style.color]="highlightcolor">Style Binding</h2>
+  <h2 [ngStyle]="titleStyles">Style binding 3</h2>
+</div>
+<!-- END STYLE BINDING -->
+
+<br><br>
+
+<!-- START EVENT BINDING -->
+<div class="event-binding-block">
+  <button (click)="onClickme($event)">Greet</button>
+  <br><br>
+
+  <button (click)="greeting='welcome to everex'">Greet</button>
+  {{greeting}}
+  <br><br>
+</div>
+<!-- END EVENT BINDING -->
+
+<!-- START TEAMPLATE REFERENCE VARIABLES -->
+<div class="template-refrence-varaibles-block">
+  <input type="text" #myInput>
+  <button (click)="logMsg(myInput)">Log</button>
+</div>
+<!-- END TEAMPLATE REFERENCE VARIABLES -->
+
+<!-- START TWO WAY BINDING -->
+<div class="two-way-binding-block">
+   <input type="text" [(ngModel)]="fieldinput">
+   {{fieldinput}}
+</div>
+<!-- END TWO WAY BINDING -->
+
+<br><br>
+
+<!-- START ROUTER -->
+<div class="tabbed-block">
+  <ul class="list-inline">
+  <li routerLink="/about">About</li>
+  <li routerLink="/contact">contact</li>
+</ul>
+</div>
+<!-- END ROUTER -->
+
+<!-- START NG DIRECTIVE -->
+<div class="ng-directive-block">
+  <h2 *ngIf="displayName">Codevolution</h2>
+</div>
+<!-- END NG DIRECTIVE -->
+
+<!-- START NG SWITCH -->
+<div [ngSwitch]="color">
+  <div *ngSwitchCase="'red'">you picked red color</div>
+  <div *ngSwitchCase="'blue'">you picked blue color</div>
+  <div *ngSwitchCase="'green'">you picked green color</div>
+  <div *ngSwitchDefault>Pick again</div>
+</div>
+<!-- END NG SWITCH -->
+
+<br><br>
+
+<!-- START NG FOR DIRECTIVE -->
+<div class="colors-block">
+  <div *ngFor="let color of colors;even as l">
+    <h2>{{l}} {{color}}</h2>
+    </div>
+</div>
+<!-- END NG FOR DIRECTIVE -->
+
+<!-- START COMPONENT INTERACTION -->
+<div class="component-interaction-block">
+  <app-test (childEvent)="message=$event" [parentData]="specialName"></app-test>
+</div>
+<h2>{{message}}</h2>
+<!-- END COMPONENT INTERACTION -->
+
+
+
+</body>
+</html>
